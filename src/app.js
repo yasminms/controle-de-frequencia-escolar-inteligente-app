@@ -1,8 +1,9 @@
 import React from 'react';
+import { Input } from './components';
 
 const App = () => (
   <div>
-    <h1>a</h1>
+    <Input />
   </div>
 );
 
