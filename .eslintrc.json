@@ -30,6 +30,7 @@
             }
           ],
           "global-require": "off",
+          "react/forbid-prop-types": "off",
           "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
     }
 }
