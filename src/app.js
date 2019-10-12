@@ -1,9 +1,8 @@
 import React from 'react';
-import { Input } from './components';
 
 const App = () => (
   <div>
-    <Input />
+    Controle de Frequência Escolar Inteligente
   </div>
 );
 
