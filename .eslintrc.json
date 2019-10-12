@@ -23,6 +23,7 @@
     "rules": {
         "import/prefer-default-export": "off",
         "no-console": "error",
+        "react/button-has-type": "off",
         "react/jsx-filename-extension": [
             "error",
             {
@@ -30,6 +31,7 @@
             }
           ],
           "global-require": "off",
+          "react/forbid-prop-types": "off",
           "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
     }
 }

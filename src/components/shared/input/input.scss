@@ -1,0 +1,13 @@
+.input {
+    width: 320px;
+    height: 40px;
+    padding: 10px 20px;
+    border: 1px solid $light-grey;
+    border-radius: 3px;
+    color: $dark-grey;
+    outline: none;
+}
+
+.input::placeholder {
+    color: $light-grey;
+}
