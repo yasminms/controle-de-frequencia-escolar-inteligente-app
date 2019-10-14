@@ -1,45 +1,48 @@
 .radio-container {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-right: 30px;
+
+  &__radio {
+    display: none;
+    cursor: pointer;
+  }
+  &__label {
+    position: relative;
     display: flex;
     align-items: center;
+    font-size: 16px;
+  }
 
-    &__radio {
-        display: none;
-        cursor: pointer;
-    }
-    &__label {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
+  &__label:before {
+    margin-right: 20px;
+    display: inline-block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background: transparent;
+    border: 2px solid $light-grey;
+    border-radius: 50%;
+    content: '';
+  }
 
-    &__label:before {
-        margin-right: 20px;
-        display: inline-block;
-        position: relative;
-        width: 16px;
-        height: 16px;
-        background: transparent;
-        border: 2px solid $light-grey;
-        border-radius: 50%;
-        content: '';
-    }
+  &__label:after {
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    left: 4px;
+    top: 50%;
+    transform: scale(0) translateY(-50%);
+    transform-origin: top;
+    background-color: $green;
+    transition-duration: 0.2s;
+    content: '';
+  }
 
-    &__label:after {
-        display: block;
-        position: absolute;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        left: 4px;
-        top: 50%;
-        transform: scale(0) translateY(-50%);
-        transform-origin: top;
-        background-color: $green;
-        transition-duration: .2s;
-        content: '';
-    }
-
-    &__radio:checked + &__label:after{
-        transform: scale(1) translateY(-50%)
-    }
+  &__radio:checked + &__label:after {
+    transform: scale(1) translateY(-50%);
+  }
 }

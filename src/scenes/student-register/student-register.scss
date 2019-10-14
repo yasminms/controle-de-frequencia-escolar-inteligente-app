@@ -1,0 +1,15 @@
+.student-register {
+  width: calc(50% - 40px);
+
+  &__special-input {
+    width: 100%;
+  }
+
+  &__normal-input {
+    width: 50%;
+
+    div {
+      display: flex;
+    }
+  }
+}

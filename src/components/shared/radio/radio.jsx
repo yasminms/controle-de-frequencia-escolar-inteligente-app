@@ -1,16 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Label } from '../label/label';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Label } from '../label/label'
 
-import './radio.scss';
+import './radio.scss'
 
 export const Radio = ({
-  onChange, disabled, value, name, required, labelText, checked,
+  onChange,
+  disabled,
+  value,
+  name,
+  required,
+  labelText,
+  checked,
 }) => (
-  <div className="radio-container">
+  <div className='radio-container'>
     <input
-      className="radio-container__radio"
-      type="radio"
+      className='radio-container__radio'
+      type='radio'
       onChange={onChange}
       disabled={disabled}
       name={name}
@@ -19,9 +25,13 @@ export const Radio = ({
       required={required}
       checked={checked}
     />
-    <Label text={labelText} className="radio-container__label" />
+    <Label
+      text={labelText}
+      className='radio-container__label'
+      onClick={onChange}
+    />
   </div>
-);
+)
 
 Radio.propTypes = {
   onChange: PropTypes.func.isRequired,
@@ -31,9 +41,9 @@ Radio.propTypes = {
   required: PropTypes.bool,
   labelText: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
-};
+}
 
 Radio.defaultProps = {
   disabled: false,
   required: true,
-};
+}
