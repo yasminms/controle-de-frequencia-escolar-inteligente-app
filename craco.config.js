@@ -1,5 +1,5 @@
-const path = require('path');
-const sassResourcesLoader = require('craco-sass-resources-loader');
+const path = require('path')
+const sassResourcesLoader = require('craco-sass-resources-loader')
 
 module.exports = {
   webpack: {
@@ -29,4 +29,4 @@ module.exports = {
       },
     },
   ],
-};
+}

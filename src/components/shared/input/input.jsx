@@ -1,13 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import './input.scss';
+import './input.scss'
 
 export const Input = ({
-  onChange, type, placeholder, disabled, value, name, required,
+  onChange,
+  type,
+  placeholder,
+  disabled,
+  value,
+  name,
+  required,
 }) => (
   <input
-    className="input"
+    className='input'
     onChange={onChange}
     type={type}
     placeholder={placeholder}
@@ -17,7 +23,7 @@ export const Input = ({
     autoComplete={false}
     required={required}
   />
-);
+)
 
 Input.propTypes = {
   onChange: PropTypes.func.isRequired,
@@ -27,11 +33,11 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.any.isRequired,
   required: PropTypes.bool,
-};
+}
 
 Input.defaultProps = {
   type: 'text',
   placeholder: '',
   disabled: false,
   required: true,
-};
+}

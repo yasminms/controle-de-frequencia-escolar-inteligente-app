@@ -1,9 +1,20 @@
-import React from 'react';
+import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { StudentRegister } from '@/scenes'
+import URLEnum from '@/enums/url-enum'
 
 const App = () => (
   <div>
-    Controle de Frequência Escolar Inteligente
+    <BrowserRouter>
+      <Switch>
+        <Route
+          exact
+          path={URLEnum.STUDENT_REGISTER}
+          component={StudentRegister}
+        />
+      </Switch>
+    </BrowserRouter>
   </div>
-);
+)
 
-export default App;
+export default App
