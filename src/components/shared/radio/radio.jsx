@@ -12,10 +12,11 @@ export const Radio = ({
   required,
   labelText,
   checked,
+  className,
 }) => (
   <div className='radio-container'>
     <input
-      className='radio-container__radio'
+      className={`radio-container__radio${className ? ` ${className}` : ``}`}
       type='radio'
       onChange={onChange}
       disabled={disabled}
@@ -41,9 +42,11 @@ Radio.propTypes = {
   required: PropTypes.bool,
   labelText: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
+  className: PropTypes.string,
 }
 
 Radio.defaultProps = {
   disabled: false,
   required: true,
+  className: '',
 }
