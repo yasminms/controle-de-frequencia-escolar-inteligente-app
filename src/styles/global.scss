@@ -9,3 +9,9 @@ html {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
 }
+
+html,
+body,
+#root {
+  height: 100%;
+}
