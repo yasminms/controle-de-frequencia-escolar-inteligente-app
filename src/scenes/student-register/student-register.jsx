@@ -7,7 +7,7 @@ import {
   MaskInput,
   PageTitle,
   Button,
-  Row,
+  InputFile,
 } from '@/components'
 import GENDER_ENUM from '../../enums/gender-enum'
 
@@ -95,7 +95,7 @@ export const StudentRegister = () => {
             </Column>
           </div>
         </div>
-        <Row>
+        <div className='student-register__container__fifth-container'>
           <div className='student-register__container__special-row'>
             <Column>
               <Label
@@ -127,15 +127,19 @@ export const StudentRegister = () => {
               />
             </Column>
           </div>
-        </Row>
-        <Row>
-          <div className='student-register__container__special-row'>
+        </div>
+        <div className='student-register__container__files'>
+          <Label text='Imagem' htmlFor='password' />
+          <InputFile />
+        </div>
+        <div className='student-register__container__fifth-container'>
+          <div className='student-register__container__special-row student-register__button'>
             <Button text='Cancelar' />
           </div>
-          <div className='student-register__container__special-row right-container'>
+          <div className='student-register__container__special-row right-container student-register__button'>
             <Button text='Salvar' type='submit' />
           </div>
-        </Row>
+        </div>
       </div>
     </div>
   )

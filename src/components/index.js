@@ -9,6 +9,7 @@ import { Column } from './shared/column/column'
 import { Header } from './shared/header/header'
 import { PageTitle } from './shared/page-title/page-title'
 import { ButtonSecondary } from './shared/button-secondary/button-secondary'
+import { InputFile } from './shared/input-file/input-file'
 
 export {
   Input,
@@ -22,4 +23,5 @@ export {
   Header,
   PageTitle,
   ButtonSecondary,
+  InputFile,
 }

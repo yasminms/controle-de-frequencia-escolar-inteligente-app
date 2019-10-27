@@ -1,0 +1,40 @@
+.input-file-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  border: 2px dashed $light-grey;
+  padding: 20px;
+  cursor: default;
+
+  &__icon svg {
+    width: auto;
+    height: 60px;
+    fill: $light-grey;
+  }
+
+  &__span {
+    font-size: 20px;
+    color: $light-grey;
+    margin: 20px 0;
+  }
+}
+
+.input-image-container {
+  border: 2px dashed $light-grey;
+  padding: 20px;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  img {
+    height: 100px;
+    margin: 10px;
+  }
+}
+
+.outline-none {
+  outline: none;
+}
