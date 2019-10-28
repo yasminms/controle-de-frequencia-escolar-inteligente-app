@@ -9,6 +9,7 @@ const headersWithoutAuthorization = {
   'Content-Type': 'application/json',
 }
 
-const token = 'teste'
+// TODO: implementar login com token
+const token = ''
 
 export { BASE_URL, headers, headersWithoutAuthorization, token }
