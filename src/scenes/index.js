@@ -1,3 +1,4 @@
-import { StudentRegister } from './student-register/student-register';
+import { StudentRegister } from './student-register/student-register'
+import { Login } from './login/login'
 
-export { StudentRegister };
+export { StudentRegister, Login }
