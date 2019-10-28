@@ -1,0 +1,36 @@
+.header {
+  height: 280px;
+  background-color: $dark-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 30px 60px;
+
+  &__name {
+    font-size: 18px;
+    color: $off-white;
+    margin-bottom: 25px;
+  }
+
+  &__itens {
+    display: flex;
+    align-items: center;
+
+    &__item {
+      color: $white;
+      margin-right: 20px;
+
+      &__radio {
+        display: none;
+      }
+
+      label {
+        cursor: pointer;
+      }
+
+      &__radio:checked + label {
+        text-decoration: underline;
+      }
+    }
+  }
+}
