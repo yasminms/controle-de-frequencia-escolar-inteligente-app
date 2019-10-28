@@ -1,14 +1,6 @@
 import React, { useState } from 'react'
-import {
-  Label,
-  Input,
-  Column,
-  Radio,
-  MaskInput,
-  PageTitle,
-  Button,
-  InputFile,
-} from '@/components'
+import { Input, Button } from '@/components'
+import { Image } from '@/assets/images'
 
 import './login.scss'
 
@@ -51,7 +43,16 @@ export const Login = () => {
             </div>
           </div>
         </form>
-        <div className='login__container__info'>Info</div>
+        <div className='login__container__info'>
+          <Image icon='Classroom' />
+          <h2 className='login__container__info__primary'>
+            Cadastro autormático da presença dos estudantes
+          </h2>
+          <span className='login__container__info__secondary'>
+            Com o nosso sistema, todo o processo é feita de forma automática
+            através do reconhecimento facial dos alunos
+          </span>
+        </div>
       </div>
     </div>
   )

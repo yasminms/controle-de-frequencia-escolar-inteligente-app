@@ -1,8 +1,10 @@
 import React from 'react'
 import { Upload } from './upload'
+import { Classroom } from './classroom'
 
 const icons = {
   Upload,
+  Classroom,
 }
 
 export const Image = ({ icon, ...props }) => {
