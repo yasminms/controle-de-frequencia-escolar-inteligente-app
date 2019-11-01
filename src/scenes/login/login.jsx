@@ -1,12 +1,24 @@
 import React, { useState } from 'react'
 import { Input, Button } from '@/components'
 import { Image } from '@/assets/images'
+import { authenticate, setUserCredentials } from '@/services/auth-service'
 
 import './login.scss'
 
 export const Login = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+
+  const getFormattedData = () => {
+    return { email, password }
+  }
+
+  const authenticateOnSubmit = event => {
+    event.preventDefault()
+    authenticate(getFormattedData()).then(response => {
+      setUserCredentials(response.data)
+    })
+  }
 
   return (
     <div className='login'>
@@ -39,7 +51,11 @@ export const Login = () => {
               onChange={e => setPassword(e.target.value)}
             />
             <div className='login__container__fields__button'>
-              <Button text='Login' type='submit' />
+              <Button
+                text='Login'
+                type='submit'
+                onClick={authenticateOnSubmit}
+              />
             </div>
           </div>
         </form>

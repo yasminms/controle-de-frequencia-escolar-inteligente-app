@@ -12,4 +12,6 @@ const headersWithoutAuthorization = {
 // TODO: implementar login com token
 const token = ''
 
-export { BASE_URL, headers, headersWithoutAuthorization, token }
+const USER_KEY = 'user'
+
+export { BASE_URL, headers, headersWithoutAuthorization, token, USER_KEY }
