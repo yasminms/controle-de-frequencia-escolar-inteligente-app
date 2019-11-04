@@ -10,21 +10,58 @@ import {
   InputFile,
 } from '@/components'
 import GENDER_ENUM from '../../enums/gender-enum'
+import { register, insertImages } from '@/services/student-service'
 
 import './student-register.scss'
 
 export const StudentRegister = () => {
-  const [name, setName] = useState()
+  const [fullName, setFullName] = useState()
   const [gender, setGender] = useState(GENDER_ENUM.MALE)
   const [birthDate, setBirthDate] = useState()
   const [cpf, setCpf] = useState()
   const [rg, setRg] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  const [files, setFiles] = useState([])
+
+  const getFormattedData = () => {
+    return {
+      birthDate,
+      email,
+      cpf,
+      fullName,
+      password,
+      gender,
+    }
+  }
+
+  const getFormattedEmailAndFiles = () => {
+    const formData = new FormData()
+
+    files.forEach(file => {
+      formData.append('faceImages', file)
+    })
+
+    return {
+      email,
+      formData,
+    }
+  }
+
+  const getFiles = imageFiles => {
+    setFiles(imageFiles)
+  }
+
+  const registerOnSubmit = event => {
+    event.preventDefault()
+    register(getFormattedData()).then(response => {
+      insertImages(getFormattedEmailAndFiles()).then(response => {})
+    })
+  }
 
   return (
     <div className='student-register'>
-      <div className='student-register__container'>
+      <form className='student-register__container'>
         <PageTitle text='Cadastre um aluno(a)' />
         <Column>
           <Label
@@ -36,8 +73,8 @@ export const StudentRegister = () => {
             <Input
               placeholder='Informe o nome do aluno'
               name='name'
-              value={name}
-              onChange={e => setName(e.target.value)}
+              value={fullName}
+              onChange={e => setFullName(e.target.value)}
             />
           </div>
         </Column>
@@ -122,6 +159,7 @@ export const StudentRegister = () => {
               <Input
                 placeholder='Informe a senha do aluno'
                 name='password'
+                type='password'
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />
@@ -130,17 +168,17 @@ export const StudentRegister = () => {
         </div>
         <div className='student-register__container__files'>
           <Label text='Imagem' htmlFor='password' />
-          <InputFile />
+          <InputFile parentCallback={getFiles} />
         </div>
         <div className='student-register__container__fifth-container'>
           <div className='student-register__container__special-row student-register__button'>
             <Button text='Cancelar' />
           </div>
           <div className='student-register__container__special-row right-container student-register__button'>
-            <Button text='Salvar' type='submit' />
+            <Button text='Salvar' type='submit' onClick={registerOnSubmit} />
           </div>
         </div>
-      </div>
+      </form>
     </div>
   )
 }
