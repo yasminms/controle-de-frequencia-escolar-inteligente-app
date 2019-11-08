@@ -11,6 +11,7 @@ import {
 import { findAllGroups } from '@/services/group-service'
 import { findAllClassrooms } from '@/services/classroom-service'
 import { findAllSubjects } from '@/services/subject-service'
+import INITIAL_DAYS_OBJECT from '@/res/initial-days-object'
 
 import './class-register.scss'
 
@@ -21,15 +22,9 @@ export const ClassRegister = () => {
   const [classroom, setClassroom] = useState()
   const [subjectsList, setSubjectsList] = useState()
   const [subject, setSubject] = useState()
-  const [monday, setMonday] = useState(false)
-  const [tuesday, setTuesday] = useState(false)
-  const [wednesday, setWednesday] = useState(false)
-  const [thursday, setThursday] = useState(false)
-  const [friday, setFriday] = useState(false)
-  const [mondayTime, setMondayTime] = useState()
-  const [mondayPeriods, setMondayPeriods] = useState()
   const [year, setYear] = useState(new Date().getFullYear())
   const [tolerance, setTolerance] = useState()
+  const [classList, setClassList] = useState(INITIAL_DAYS_OBJECT)
 
   useEffect(() => {
     findAllGroups().then(response => {
@@ -62,6 +57,13 @@ export const ClassRegister = () => {
     subjectsList.map(subjectItem => (
       <option value={subjectItem.id}>{subjectItem.name}</option>
     ))
+
+  const listHandleChange = (index, value, field) => {
+    const updatedClassList = [...classList]
+    updatedClassList[index][field] = value
+
+    setClassList(updatedClassList)
+  }
 
   return (
     <div className='class-register'>
@@ -114,24 +116,32 @@ export const ClassRegister = () => {
             <Label text='Dia da semana e início da aula' htmlFor='dayOfWeek' />
             <div className='class-register__container__column__item'>
               <Checkbox
-                checked={monday}
-                onChange={() => setMonday(!monday)}
+                checked={classList[0].isDaySelected}
+                onChange={() =>
+                  listHandleChange(
+                    0,
+                    !classList[0].isDaySelected,
+                    'isDaySelected'
+                  )
+                }
                 text='Segunda-feira'
                 name='monday'
               />
               <div className='class-register__container__column__item__special-input'>
                 <InputTime
                   inputComponent={<Input />}
-                  value={mondayTime}
-                  onChange={e => setMondayTime(e.target.value)}
+                  value={classList[0].startTime}
+                  onChange={e =>
+                    listHandleChange(0, e.target.value, 'startTime')
+                  }
                 />
               </div>
               <div className='class-register__container__column__item__normal-input'>
                 <MaskInput
                   type='text'
                   mask='99'
-                  value={mondayPeriods}
-                  onChange={e => setMondayPeriods(e.target.value)}
+                  value={classList[0].periods}
+                  onChange={e => listHandleChange(0, e.target.value, 'periods')}
                   placeholder='Períodos'
                   name='mondayPeriods'
                 />
@@ -139,24 +149,32 @@ export const ClassRegister = () => {
             </div>
             <div className='class-register__container__column__item'>
               <Checkbox
-                checked={tuesday}
-                onChange={() => setTuesday(!tuesday)}
+                checked={classList[1].isDaySelected}
+                onChange={() =>
+                  listHandleChange(
+                    1,
+                    !classList[1].isDaySelected,
+                    'isDaySelected'
+                  )
+                }
                 text='Terça-feira'
                 name='tuesday'
               />
               <div className='class-register__container__column__item__special-input'>
                 <InputTime
                   inputComponent={<Input />}
-                  value={mondayTime}
-                  onChange={e => setMondayTime(e.target.value)}
+                  value={classList[1].startTime}
+                  onChange={e =>
+                    listHandleChange(1, e.target.value, 'startTime')
+                  }
                 />
               </div>
               <div className='class-register__container__column__item__normal-input'>
                 <MaskInput
                   type='text'
                   mask='99'
-                  value={mondayPeriods}
-                  onChange={e => setMondayPeriods(e.target.value)}
+                  value={classList[1].periods}
+                  onChange={e => listHandleChange(1, e.target.value, 'periods')}
                   placeholder='Períodos'
                   name='mondayPeriods'
                 />
@@ -164,24 +182,32 @@ export const ClassRegister = () => {
             </div>
             <div className='class-register__container__column__item'>
               <Checkbox
-                checked={wednesday}
-                onChange={() => setWednesday(!wednesday)}
+                checked={classList[2].isDaySelected}
+                onChange={() =>
+                  listHandleChange(
+                    2,
+                    !classList[2].isDaySelected,
+                    'isDaySelected'
+                  )
+                }
                 text='Quarta-feira'
                 name='wednesday'
               />
               <div className='class-register__container__column__item__special-input'>
                 <InputTime
                   inputComponent={<Input />}
-                  value={mondayTime}
-                  onChange={e => setMondayTime(e.target.value)}
+                  value={classList[2].startTime}
+                  onChange={e =>
+                    listHandleChange(2, e.target.value, 'startTime')
+                  }
                 />
               </div>
               <div className='class-register__container__column__item__normal-input'>
                 <MaskInput
                   type='text'
                   mask='99'
-                  value={mondayPeriods}
-                  onChange={e => setMondayPeriods(e.target.value)}
+                  value={classList[2].periods}
+                  onChange={e => listHandleChange(2, e.target.value, 'periods')}
                   placeholder='Períodos'
                   name='mondayPeriods'
                 />
@@ -189,24 +215,32 @@ export const ClassRegister = () => {
             </div>
             <div className='class-register__container__column__item'>
               <Checkbox
-                checked={thursday}
-                onChange={() => setThursday(!thursday)}
+                checked={classList[3].isDaySelected}
+                onChange={() =>
+                  listHandleChange(
+                    3,
+                    !classList[3].isDaySelected,
+                    'isDaySelected'
+                  )
+                }
                 text='Quinta-feira'
                 name='thursday'
               />
               <div className='class-register__container__column__item__special-input'>
                 <InputTime
                   inputComponent={<Input />}
-                  value={mondayTime}
-                  onChange={e => setMondayTime(e.target.value)}
+                  value={classList[3].startTime}
+                  onChange={e =>
+                    listHandleChange(3, e.target.value, 'startTime')
+                  }
                 />
               </div>
               <div className='class-register__container__column__item__normal-input'>
                 <MaskInput
                   type='text'
                   mask='99'
-                  value={mondayPeriods}
-                  onChange={e => setMondayPeriods(e.target.value)}
+                  value={classList[3].periods}
+                  onChange={e => listHandleChange(3, e.target.value, 'periods')}
                   placeholder='Períodos'
                   name='mondayPeriods'
                 />
@@ -214,24 +248,32 @@ export const ClassRegister = () => {
             </div>
             <div className='class-register__container__column__item'>
               <Checkbox
-                checked={friday}
-                onChange={() => setFriday(!friday)}
+                checked={classList[4].isDaySelected}
+                onChange={() =>
+                  listHandleChange(
+                    4,
+                    !classList[4].isDaySelected,
+                    'isDaySelected'
+                  )
+                }
                 text='Sexta-feira'
                 name='friday'
               />
               <div className='class-register__container__column__item__special-input'>
                 <InputTime
                   inputComponent={<Input />}
-                  value={mondayTime}
-                  onChange={e => setMondayTime(e.target.value)}
+                  value={classList[4].startTime}
+                  onChange={e =>
+                    listHandleChange(4, e.target.value, 'startTime')
+                  }
                 />
               </div>
               <div className='class-register__container__column__item__normal-input'>
                 <MaskInput
                   type='text'
                   mask='99'
-                  value={mondayPeriods}
-                  onChange={e => setMondayPeriods(e.target.value)}
+                  value={classList[4].periods}
+                  onChange={e => listHandleChange(4, e.target.value, 'periods')}
                   placeholder='Períodos'
                   name='mondayPeriods'
                 />
