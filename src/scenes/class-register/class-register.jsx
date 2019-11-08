@@ -6,6 +6,7 @@ import {
   Input,
   Label,
   InputTime,
+  Row,
 } from '@/components'
 import { findAllGroups } from '@/services/group-service'
 import { findAllClassrooms } from '@/services/classroom-service'
@@ -87,16 +88,26 @@ export const ClassRegister = () => {
               {mapClassroomsToOptions()}
             </Select>
           </div>
-          <div className='class-register__container__column__form-group'>
-            <Label text='Ano' htmlFor='year' />
-            <MaskInput
-              type='text'
-              mask='9999'
-              value={year}
-              onChange={e => setYear(e.target.value)}
-              name='year'
-            />
-          </div>
+          <Row>
+            <div className='class-register__container__column__form-group  class-register__container__column__first-element-row'>
+              <Label text='Ano' htmlFor='year' />
+              <MaskInput
+                type='text'
+                mask='9999'
+                value={year}
+                onChange={e => setYear(e.target.value)}
+                name='year'
+              />
+            </div>
+            <div className='class-register__container__column__form-group'>
+              <Label text='Tolerância' htmlFor='tolerance' />
+              <InputTime
+                inputComponent={<Input />}
+                value={tolerance}
+                onChange={e => setTolerance(e.target.value)}
+              />
+            </div>
+          </Row>
         </div>
         <div className='class-register__container__column'>
           <div className='class-register__container__column__form-group'>
@@ -225,14 +236,6 @@ export const ClassRegister = () => {
                   name='mondayPeriods'
                 />
               </div>
-            </div>
-            <div className='class-register__container__column__form-group'>
-              <Label text='Tolerância' htmlFor='tolerance' />
-              <InputTime
-                inputComponent={<Input />}
-                value={tolerance}
-                onChange={e => setTolerance(e.target.value)}
-              />
             </div>
           </div>
         </div>
