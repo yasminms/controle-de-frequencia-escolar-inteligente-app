@@ -1,0 +1,40 @@
+.class-register {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__container {
+    width: 70%;
+    display: flex;
+
+    &__column {
+      display: flex;
+      flex-direction: column;
+
+      &__item {
+        display: flex;
+        margin-bottom: 8px;
+
+        &__special-input {
+          width: 90px;
+          margin-left: 10px;
+        }
+
+        &__normal-input {
+          width: 115px;
+          margin-left: 8px;
+        }
+      }
+
+      &__form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 13px;
+      }
+    }
+
+    &__column:first-child {
+      margin-right: 40px;
+    }
+  }
+}
