@@ -1,11 +1,21 @@
 import axios from 'axios'
-import { BASE_URL, headers, token } from '@/config'
+import { BASE_URL, headers } from '@/config'
+import { getUserCredentials } from '@/services/auth-service'
 
-const register = () => {
-  // TODO: adicionar URL da requisição
-  return axios.post(BASE_URL.concat(''), {
-    headers: headers(token),
+const register = data => {
+  return axios.post(BASE_URL.concat('/student'), data, {
+    headers: headers(getUserCredentials().token),
   })
 }
 
-export { register }
+const insertImages = data => {
+  return axios.post(BASE_URL.concat('/student/attachment'), data.formData, {
+    params: { email: data.email },
+    headers: {
+      Authorization: `Bearer ${getUserCredentials().token}`,
+      'Content-Type': 'multipart/form-data',
+    },
+  })
+}
+
+export { register, insertImages }

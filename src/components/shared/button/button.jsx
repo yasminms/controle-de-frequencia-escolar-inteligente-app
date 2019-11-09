@@ -16,6 +16,6 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  onClick: null,
+  onClick: () => null,
   type: 'button',
 }

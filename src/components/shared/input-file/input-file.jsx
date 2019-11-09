@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
+import PropTypes from 'prop-types'
 import { Image } from '@/assets/images'
 import './input-file.scss'
 import { Button } from '@/components'
 
-export const InputFile = () => {
+export const InputFile = ({ parentCallback }) => {
   const [files, setFiles] = useState([])
+
+  useEffect(() => {
+    parentCallback(files)
+  }, [files])
 
   const mapFiles = () => {
     return files.map(file => {
@@ -41,4 +46,8 @@ export const InputFile = () => {
       )}
     </div>
   )
+}
+
+InputFile.propTypes = {
+  parentCallback: PropTypes.func.isRequired,
 }
