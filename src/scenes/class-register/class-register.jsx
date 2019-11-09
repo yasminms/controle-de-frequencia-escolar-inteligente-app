@@ -185,6 +185,7 @@ export const ClassRegister = () => {
                     <InputTime
                       inputComponent={<Input />}
                       value={classList[0].startTime}
+                      disabled={!classList[0].isDaySelected}
                       onChange={e =>
                         listHandleChange(0, e.target.value, 'startTime')
                       }
@@ -195,6 +196,7 @@ export const ClassRegister = () => {
                       type='text'
                       mask='99'
                       value={classList[0].periods}
+                      disabled={!classList[0].isDaySelected}
                       onChange={e =>
                         listHandleChange(0, e.target.value, 'periods')
                       }
@@ -222,6 +224,7 @@ export const ClassRegister = () => {
                     <InputTime
                       inputComponent={<Input />}
                       value={classList[1].startTime}
+                      disabled={!classList[1].isDaySelected}
                       onChange={e =>
                         listHandleChange(1, e.target.value, 'startTime')
                       }
@@ -232,6 +235,7 @@ export const ClassRegister = () => {
                       type='text'
                       mask='99'
                       value={classList[1].periods}
+                      disabled={!classList[1].isDaySelected}
                       onChange={e =>
                         listHandleChange(1, e.target.value, 'periods')
                       }
@@ -259,6 +263,7 @@ export const ClassRegister = () => {
                     <InputTime
                       inputComponent={<Input />}
                       value={classList[2].startTime}
+                      disabled={!classList[2].isDaySelected}
                       onChange={e =>
                         listHandleChange(2, e.target.value, 'startTime')
                       }
@@ -269,6 +274,7 @@ export const ClassRegister = () => {
                       type='text'
                       mask='99'
                       value={classList[2].periods}
+                      disabled={!classList[2].isDaySelected}
                       onChange={e =>
                         listHandleChange(2, e.target.value, 'periods')
                       }
@@ -296,6 +302,7 @@ export const ClassRegister = () => {
                     <InputTime
                       inputComponent={<Input />}
                       value={classList[3].startTime}
+                      disabled={!classList[3].isDaySelected}
                       onChange={e =>
                         listHandleChange(3, e.target.value, 'startTime')
                       }
@@ -306,6 +313,7 @@ export const ClassRegister = () => {
                       type='text'
                       mask='99'
                       value={classList[3].periods}
+                      disabled={!classList[3].isDaySelected}
                       onChange={e =>
                         listHandleChange(3, e.target.value, 'periods')
                       }
@@ -333,6 +341,7 @@ export const ClassRegister = () => {
                     <InputTime
                       inputComponent={<Input />}
                       value={classList[4].startTime}
+                      disabled={!classList[4].isDaySelected}
                       onChange={e =>
                         listHandleChange(4, e.target.value, 'startTime')
                       }
@@ -343,6 +352,7 @@ export const ClassRegister = () => {
                       type='text'
                       mask='99'
                       value={classList[4].periods}
+                      disabled={!classList[4].isDaySelected}
                       onChange={e =>
                         listHandleChange(4, e.target.value, 'periods')
                       }
