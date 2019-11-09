@@ -8,15 +8,15 @@ const App = () => (
   <>
     <BrowserRouter>
       <Switch>
-        {/* <Route
+        <Route
           exact
           path={URLEnum.STUDENT_REGISTER}
           component={WrappedComponent(StudentRegister)}
         />
-        <Route exact path={URLEnum.LOGIN} component={Login} /> */}
+        <Route exact path={URLEnum.LOGIN} component={Login} />
         <Route
           exact
-          path={URLEnum.STUDENT_REGISTER}
+          path={URLEnum.CLASS_REGISTER}
           component={WrappedComponent(ClassRegister)}
         />
       </Switch>

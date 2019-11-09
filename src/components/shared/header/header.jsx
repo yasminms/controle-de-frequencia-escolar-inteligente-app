@@ -9,7 +9,7 @@ import { getUserCredentials } from '@/services/auth-service'
 import './header.scss'
 
 export const Header = () => {
-  const [selectedItem, setSelectedItem] = useState(URLEnum.STUDENT_REGISTER)
+  const [selectedItem, setSelectedItem] = useState()
   const [loggedUser, setLoggedUser] = useState()
   const history = useHistory()
 

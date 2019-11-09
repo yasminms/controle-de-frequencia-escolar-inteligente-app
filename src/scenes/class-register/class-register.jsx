@@ -8,6 +8,7 @@ import {
   InputTime,
   Row,
   Button,
+  PageTitle,
 } from '@/components'
 import { findAllGroups } from '@/services/group-service'
 import { findAllClassrooms } from '@/services/classroom-service'
@@ -103,6 +104,7 @@ export const ClassRegister = () => {
   return (
     <div className='class-register'>
       <form className='class-register__container' onSubmit={handleSubmit}>
+        <PageTitle text='Cadastre sua aula' />
         <Row>
           <div className='class-register__container__column'>
             <div className='class-register__container__column__form-group'>
@@ -138,8 +140,8 @@ export const ClassRegister = () => {
                 {mapClassroomsToOptions()}
               </Select>
             </div>
-            <Row>
-              <div className='class-register__container__column__form-group  class-register__container__column__first-element-row'>
+            <div className='class-register__container__column__double-item'>
+              <div className='class-register__container__column__double-item__group'>
                 <Label text='Ano' htmlFor='year' />
                 <MaskInput
                   type='text'
@@ -149,7 +151,7 @@ export const ClassRegister = () => {
                   name='year'
                 />
               </div>
-              <div className='class-register__container__column__form-group'>
+              <div className='class-register__container__column__double-item__group'>
                 <Label text='Tolerância' htmlFor='tolerance' />
                 <InputTime
                   inputComponent={<Input />}
@@ -157,7 +159,7 @@ export const ClassRegister = () => {
                   onChange={e => setTolerance(e.target.value)}
                 />
               </div>
-            </Row>
+            </div>
           </div>
           <div className='class-register__container__column'>
             <div className='class-register__container__column__form-group'>
@@ -178,26 +180,28 @@ export const ClassRegister = () => {
                   text='Segunda-feira'
                   name='monday'
                 />
-                <div className='class-register__container__column__item__special-input'>
-                  <InputTime
-                    inputComponent={<Input />}
-                    value={classList[0].startTime}
-                    onChange={e =>
-                      listHandleChange(0, e.target.value, 'startTime')
-                    }
-                  />
-                </div>
-                <div className='class-register__container__column__item__normal-input'>
-                  <MaskInput
-                    type='text'
-                    mask='99'
-                    value={classList[0].periods}
-                    onChange={e =>
-                      listHandleChange(0, e.target.value, 'periods')
-                    }
-                    placeholder='Períodos'
-                    name='mondayPeriods'
-                  />
+                <div className='class-register__container__column__item__inputs'>
+                  <div className='class-register__container__column__item__inputs__special-input'>
+                    <InputTime
+                      inputComponent={<Input />}
+                      value={classList[0].startTime}
+                      onChange={e =>
+                        listHandleChange(0, e.target.value, 'startTime')
+                      }
+                    />
+                  </div>
+                  <div className='class-register__container__column__item__inputs__normal-input'>
+                    <MaskInput
+                      type='text'
+                      mask='99'
+                      value={classList[0].periods}
+                      onChange={e =>
+                        listHandleChange(0, e.target.value, 'periods')
+                      }
+                      placeholder='Períodos'
+                      name='mondayPeriods'
+                    />
+                  </div>
                 </div>
               </div>
               <div className='class-register__container__column__item'>
@@ -213,26 +217,28 @@ export const ClassRegister = () => {
                   text='Terça-feira'
                   name='tuesday'
                 />
-                <div className='class-register__container__column__item__special-input'>
-                  <InputTime
-                    inputComponent={<Input />}
-                    value={classList[1].startTime}
-                    onChange={e =>
-                      listHandleChange(1, e.target.value, 'startTime')
-                    }
-                  />
-                </div>
-                <div className='class-register__container__column__item__normal-input'>
-                  <MaskInput
-                    type='text'
-                    mask='99'
-                    value={classList[1].periods}
-                    onChange={e =>
-                      listHandleChange(1, e.target.value, 'periods')
-                    }
-                    placeholder='Períodos'
-                    name='mondayPeriods'
-                  />
+                <div className='class-register__container__column__item__inputs'>
+                  <div className='class-register__container__column__item__inputs__special-input'>
+                    <InputTime
+                      inputComponent={<Input />}
+                      value={classList[1].startTime}
+                      onChange={e =>
+                        listHandleChange(1, e.target.value, 'startTime')
+                      }
+                    />
+                  </div>
+                  <div className='class-register__container__column__item__inputs__normal-input'>
+                    <MaskInput
+                      type='text'
+                      mask='99'
+                      value={classList[1].periods}
+                      onChange={e =>
+                        listHandleChange(1, e.target.value, 'periods')
+                      }
+                      placeholder='Períodos'
+                      name='mondayPeriods'
+                    />
+                  </div>
                 </div>
               </div>
               <div className='class-register__container__column__item'>
@@ -248,26 +254,28 @@ export const ClassRegister = () => {
                   text='Quarta-feira'
                   name='wednesday'
                 />
-                <div className='class-register__container__column__item__special-input'>
-                  <InputTime
-                    inputComponent={<Input />}
-                    value={classList[2].startTime}
-                    onChange={e =>
-                      listHandleChange(2, e.target.value, 'startTime')
-                    }
-                  />
-                </div>
-                <div className='class-register__container__column__item__normal-input'>
-                  <MaskInput
-                    type='text'
-                    mask='99'
-                    value={classList[2].periods}
-                    onChange={e =>
-                      listHandleChange(2, e.target.value, 'periods')
-                    }
-                    placeholder='Períodos'
-                    name='mondayPeriods'
-                  />
+                <div className='class-register__container__column__item__inputs'>
+                  <div className='class-register__container__column__item__inputs__special-input'>
+                    <InputTime
+                      inputComponent={<Input />}
+                      value={classList[2].startTime}
+                      onChange={e =>
+                        listHandleChange(2, e.target.value, 'startTime')
+                      }
+                    />
+                  </div>
+                  <div className='class-register__container__column__item__inputs__normal-input'>
+                    <MaskInput
+                      type='text'
+                      mask='99'
+                      value={classList[2].periods}
+                      onChange={e =>
+                        listHandleChange(2, e.target.value, 'periods')
+                      }
+                      placeholder='Períodos'
+                      name='mondayPeriods'
+                    />
+                  </div>
                 </div>
               </div>
               <div className='class-register__container__column__item'>
@@ -283,26 +291,28 @@ export const ClassRegister = () => {
                   text='Quinta-feira'
                   name='thursday'
                 />
-                <div className='class-register__container__column__item__special-input'>
-                  <InputTime
-                    inputComponent={<Input />}
-                    value={classList[3].startTime}
-                    onChange={e =>
-                      listHandleChange(3, e.target.value, 'startTime')
-                    }
-                  />
-                </div>
-                <div className='class-register__container__column__item__normal-input'>
-                  <MaskInput
-                    type='text'
-                    mask='99'
-                    value={classList[3].periods}
-                    onChange={e =>
-                      listHandleChange(3, e.target.value, 'periods')
-                    }
-                    placeholder='Períodos'
-                    name='mondayPeriods'
-                  />
+                <div className='class-register__container__column__item__inputs'>
+                  <div className='class-register__container__column__item__inputs__special-input'>
+                    <InputTime
+                      inputComponent={<Input />}
+                      value={classList[3].startTime}
+                      onChange={e =>
+                        listHandleChange(3, e.target.value, 'startTime')
+                      }
+                    />
+                  </div>
+                  <div className='class-register__container__column__item__inputs__normal-input'>
+                    <MaskInput
+                      type='text'
+                      mask='99'
+                      value={classList[3].periods}
+                      onChange={e =>
+                        listHandleChange(3, e.target.value, 'periods')
+                      }
+                      placeholder='Períodos'
+                      name='mondayPeriods'
+                    />
+                  </div>
                 </div>
               </div>
               <div className='class-register__container__column__item'>
@@ -318,26 +328,28 @@ export const ClassRegister = () => {
                   text='Sexta-feira'
                   name='friday'
                 />
-                <div className='class-register__container__column__item__special-input'>
-                  <InputTime
-                    inputComponent={<Input />}
-                    value={classList[4].startTime}
-                    onChange={e =>
-                      listHandleChange(4, e.target.value, 'startTime')
-                    }
-                  />
-                </div>
-                <div className='class-register__container__column__item__normal-input'>
-                  <MaskInput
-                    type='text'
-                    mask='99'
-                    value={classList[4].periods}
-                    onChange={e =>
-                      listHandleChange(4, e.target.value, 'periods')
-                    }
-                    placeholder='Períodos'
-                    name='mondayPeriods'
-                  />
+                <div className='class-register__container__column__item__inputs'>
+                  <div className='class-register__container__column__item__inputs__special-input'>
+                    <InputTime
+                      inputComponent={<Input />}
+                      value={classList[4].startTime}
+                      onChange={e =>
+                        listHandleChange(4, e.target.value, 'startTime')
+                      }
+                    />
+                  </div>
+                  <div className='class-register__container__column__item__inputs__normal-input'>
+                    <MaskInput
+                      type='text'
+                      mask='99'
+                      value={classList[4].periods}
+                      onChange={e =>
+                        listHandleChange(4, e.target.value, 'periods')
+                      }
+                      placeholder='Períodos'
+                      name='mondayPeriods'
+                    />
+                  </div>
                 </div>
               </div>
             </div>
