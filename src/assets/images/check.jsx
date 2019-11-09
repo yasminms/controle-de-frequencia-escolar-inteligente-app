@@ -26,6 +26,6 @@ export const Check = () => (
           />
         </g>
       </g>
-    </g>{' '}
+    </g>
   </svg>
 )

@@ -79,7 +79,7 @@ export const Header = () => {
             name='selectedItem'
             id='class'
           />
-          <label htmlFor='class'>Turma</label>
+          <label htmlFor='class'>Aula</label>
         </div>
         <div className='header__itens__item'>
           <input
