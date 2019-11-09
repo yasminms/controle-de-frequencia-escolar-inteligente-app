@@ -11,6 +11,10 @@ import { PageTitle } from './shared/page-title/page-title'
 import { ButtonSecondary } from './shared/button-secondary/button-secondary'
 import { InputFile } from './shared/input-file/input-file'
 
+import { PresenceTable } from './specifics/presence-table/presence-table'
+import { PresenceBadge } from './specifics/presence-badge/presence-badge'
+import { PresenceRow } from './specifics/presence-row/presence-row'
+
 export {
   Input,
   MaskInput,
@@ -24,4 +28,7 @@ export {
   PageTitle,
   ButtonSecondary,
   InputFile,
+  PresenceTable,
+  PresenceBadge,
+  PresenceRow,
 }

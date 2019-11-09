@@ -2,7 +2,7 @@ const BASE_URL = process.env.REACT_APP_API_URL
 const headers = token => {
   return {
     'Content-Type': 'application/json',
-    authorization: `Bearer ${token}`,
+    authorization: `${token}`,
   }
 }
 const headersWithoutAuthorization = {

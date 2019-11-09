@@ -18,4 +18,10 @@ const insertImages = data => {
   })
 }
 
-export { register, insertImages }
+const getPresences = () => {
+  return axios.get(BASE_URL.concat('/student/presence'), {
+    headers: headers(getUserCredentials().token),
+  })
+}
+
+export { register, insertImages, getPresences }
