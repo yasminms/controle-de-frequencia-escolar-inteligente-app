@@ -12,7 +12,9 @@ import {
 import { findAllGroups } from '@/services/group-service'
 import { findAllClassrooms } from '@/services/classroom-service'
 import { findAllSubjects } from '@/services/subject-service'
+import { classRegister } from '@/services/class-service'
 import INITIAL_DAYS_OBJECT from '@/res/initial-days-object'
+import DAYS_OF_WEEK from '@/enums/days-of-week'
 
 import './class-register.scss'
 
@@ -66,14 +68,49 @@ export const ClassRegister = () => {
     setClassList(updatedClassList)
   }
 
+  const getFormattedDaysObject = () => {
+    return classList
+      .map((classItem, index) => {
+        if (classItem.isDaySelected) {
+          return {
+            dayOfWeek: DAYS_OF_WEEK[index],
+            period: parseInt(classItem.periods, 0),
+            startTime: classItem.startTime,
+          }
+        }
+        return null
+      })
+      .filter(item => item != null)
+  }
+
+  const getRequestObject = () => {
+    return {
+      year,
+      subjectId: parseInt(subject, 0),
+      classroomId: parseInt(classroom, 0),
+      groupId: parseInt(group, 0),
+      tolerance,
+      information: getFormattedDaysObject(),
+    }
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    classRegister(getRequestObject()).then(response => {})
+  }
+
   return (
     <div className='class-register'>
-      <div className='class-register__container'>
+      <form className='class-register__container' onSubmit={handleSubmit}>
         <Row>
           <div className='class-register__container__column'>
             <div className='class-register__container__column__form-group'>
               <Label text='Turma' htmlFor='group' />
               <Select onChange={e => setGroup(e.target.value)} value={group}>
+                <option hidden selected>
+                  Selecione
+                </option>
                 {mapGroupsToOptions()}
               </Select>
             </div>
@@ -83,6 +120,9 @@ export const ClassRegister = () => {
                 onChange={e => setSubject(e.target.value)}
                 value={subject}
               >
+                <option hidden selected>
+                  Selecione
+                </option>
                 {mapSubjectsToOptions()}
               </Select>
             </div>
@@ -92,6 +132,9 @@ export const ClassRegister = () => {
                 onChange={e => setClassroom(e.target.value)}
                 value={classroom}
               >
+                <option hidden selected>
+                  Selecione
+                </option>
                 {mapClassroomsToOptions()}
               </Select>
             </div>
@@ -305,10 +348,10 @@ export const ClassRegister = () => {
             <Button text='Cancelar' />
           </div>
           <div className='class-register__container__buttons__button'>
-            <Button text='Salvar' type='submit' onClick={() => null} />
+            <Button text='Salvar' type='submit' />
           </div>
         </div>
-      </div>
+      </form>
     </div>
   )
 }
