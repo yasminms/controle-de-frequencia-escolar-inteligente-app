@@ -1,0 +1,45 @@
+.presence-badge {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__icon {
+    text-align: center;
+    min-width: 97px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: $white;
+  }
+}
+
+.PRESENT {
+  background-color: #52a5a1;
+}
+
+.PRESENT::before {
+  content: 'PRESENTE';
+}
+
+.PARCIAL {
+  background-color: #e4b65b;
+}
+
+.PARCIAL::before {
+  content: 'PARCIAL';
+}
+
+.NOT_PRESENT {
+  background-color: #99717b;
+}
+
+.NOT_PRESENT::before {
+  content: 'AUSENTE';
+}
+
+.AWAITING_REVIEW {
+  background-color: #5b98e7;
+}
+
+.AWAITING_REVIEW::before {
+  content: 'ANÁLISE';
+}

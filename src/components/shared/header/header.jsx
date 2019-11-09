@@ -49,30 +49,6 @@ export const Header = () => {
           <input
             type='radio'
             className='header__itens__item__radio'
-            value={URLEnum.SUBJECT_REGISTER}
-            checked={selectedItem === URLEnum.SUBJECT_REGISTER}
-            onChange={e => setSelectedItem(e.target.value)}
-            name='selectedItem'
-            id='subject'
-          />
-          <label htmlFor='subject'>Disciplina</label>
-        </div>
-        <div className='header__itens__item'>
-          <input
-            type='radio'
-            className='header__itens__item__radio'
-            value={URLEnum.CLASSROOM_REGISTER}
-            checked={selectedItem === URLEnum.CLASSROOM_REGISTER}
-            onChange={e => setSelectedItem(e.target.value)}
-            name='selectedItem'
-            id='classroom'
-          />
-          <label htmlFor='classroom'>Sala</label>
-        </div>
-        <div className='header__itens__item'>
-          <input
-            type='radio'
-            className='header__itens__item__radio'
             value={URLEnum.CLASS_REGISTER}
             checked={selectedItem === URLEnum.CLASS_REGISTER}
             onChange={e => setSelectedItem(e.target.value)}

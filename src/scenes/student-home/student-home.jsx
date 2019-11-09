@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-
-import { getPresences } from '@/services/student-service'
+import { getPresences } from '@/services/presence-service'
 import { PresenceTable } from '@/components'
+
 import './student-home.scss'
 
 export const StudentHome = () => {
@@ -11,6 +11,7 @@ export const StudentHome = () => {
       setPresences(response.data)
     })
   }, [])
+
   return (
     <div className='student-presences'>
       <div className='student-presences__container'>

@@ -37,3 +37,27 @@
     }
   }
 }
+
+@media screen and (max-width: 570px) {
+  .student-presences {
+    padding: 0;
+
+    &__container {
+      width: 100%;
+      border-radius: 0;
+
+      &__title {
+        justify-content: center;
+        border-radius: 0;
+
+        span {
+          font-size: 16px;
+        }
+      }
+
+      &__table {
+        padding: 0 5px;
+      }
+    }
+  }
+}
