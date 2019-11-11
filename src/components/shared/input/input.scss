@@ -11,3 +11,7 @@
 .input::placeholder {
   color: $light-grey;
 }
+
+.input:disabled {
+  color: $light-grey;
+}

@@ -75,6 +75,7 @@ export const StudentRegister = () => {
               name='name'
               value={fullName}
               onChange={e => setFullName(e.target.value)}
+              type='number'
             />
           </div>
         </Column>

@@ -10,6 +10,7 @@ export const MaskInput = ({
   mask,
   placeholder,
   name,
+  disabled,
 }) => (
   <InputMask
     type={type}
@@ -22,6 +23,7 @@ export const MaskInput = ({
     minLength={15}
     placeholder={placeholder}
     name={name}
+    disabled={disabled}
   />
 )
 
@@ -33,6 +35,7 @@ MaskInput.propTypes = {
   mask: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   name: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
 }
 
 MaskInput.defaultProps = {
@@ -40,4 +43,5 @@ MaskInput.defaultProps = {
   required: true,
   type: 'text',
   placeholder: '',
+  disabled: false,
 }

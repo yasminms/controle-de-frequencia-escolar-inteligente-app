@@ -10,6 +10,8 @@ import { Header } from './shared/header/header'
 import { PageTitle } from './shared/page-title/page-title'
 import { ButtonSecondary } from './shared/button-secondary/button-secondary'
 import { InputFile } from './shared/input-file/input-file'
+import { Checkbox } from './shared/checkbox/checkbox'
+import { InputTime } from './shared/input-time/input-time'
 
 export {
   Input,
@@ -24,4 +26,6 @@ export {
   PageTitle,
   ButtonSecondary,
   InputFile,
+  Checkbox,
+  InputTime,
 }

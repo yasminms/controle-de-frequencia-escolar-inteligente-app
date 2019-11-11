@@ -61,7 +61,7 @@
 
       &__fifth-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
       }
 
       &__special-row {
@@ -82,7 +82,7 @@
 @media (max-width: 600px) {
   .student-register {
     &__container {
-      width: 100%;
+      width: 90%;
     }
   }
 }
