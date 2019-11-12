@@ -1,9 +1,9 @@
 import React from 'react'
-import moment from 'moment'
-
 import PropTypes from 'prop-types'
+import moment from 'moment'
 import { PresenceBadge } from '@/components'
 import { Image } from '@/assets/images'
+
 import 'moment/locale/pt-br'
 import './presence-row.scss'
 

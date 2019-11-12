@@ -8,4 +8,10 @@ const diaryRegister = data => {
   })
 }
 
-export { diaryRegister }
+const findAllDiaries = () => {
+  return axios.get(BASE_URL.concat('/diary'), {
+    headers: headers(getUserCredentials().token),
+  })
+}
+
+export { diaryRegister, findAllDiaries }

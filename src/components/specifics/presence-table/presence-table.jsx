@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-
 import PropTypes from 'prop-types'
-import './presence-table.scss'
 import { PresenceRow } from '@/components'
+
+import './presence-table.scss'
 
 export const PresenceTable = ({ presences }) => {
   const mapPresences = () => {

@@ -3,6 +3,7 @@ import { Login } from './login/login'
 import { ClassRegister } from './class-register/class-register'
 import { LinkStudentToClass } from './link-student-to-class/link-student-to-class'
 import { StudentHome } from './student-home/student-home'
+import { DiariesViewer } from './diaries-viewer/diaries-viewer'
 
 export {
   StudentRegister,
@@ -10,4 +11,5 @@ export {
   ClassRegister,
   LinkStudentToClass,
   StudentHome,
+  DiariesViewer,
 }

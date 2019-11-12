@@ -6,6 +6,7 @@ import {
   StudentHome,
   ClassRegister,
   LinkStudentToClass,
+  DiariesViewer,
 } from '@/scenes'
 import { WrappedComponent } from '@/compositions/wrapped-component/wrapped-component'
 import URLEnum from '@/enums/url-enum'
@@ -36,6 +37,11 @@ const App = () => (
           component={WrappedComponent(LinkStudentToClass)}
         />
         <Route exact path='/tabela' component={WrappedComponent(StudentHome)} />
+        <Route
+          exact
+          path={URLEnum.DIARIES}
+          component={WrappedComponent(DiariesViewer)}
+        />
       </Switch>
     </BrowserRouter>
   </>

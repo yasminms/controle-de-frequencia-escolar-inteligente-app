@@ -13,10 +13,11 @@ import { InputFile } from './shared/input-file/input-file'
 import { Checkbox } from './shared/checkbox/checkbox'
 import { InputTime } from './shared/input-time/input-time'
 import { AutoSuggest } from './shared/auto-suggest/auto-suggest'
-
 import { PresenceTable } from './specifics/presence-table/presence-table'
 import { PresenceBadge } from './specifics/presence-badge/presence-badge'
 import { PresenceRow } from './specifics/presence-row/presence-row'
+import { DiaryRow } from './specifics/diaries/diary-row/diary-row'
+import { DiaryTable } from './specifics/diaries/diary-table/diary-table'
 
 export {
   Input,
@@ -37,4 +38,6 @@ export {
   PresenceTable,
   PresenceBadge,
   PresenceRow,
+  DiaryRow,
+  DiaryTable,
 }
