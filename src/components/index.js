@@ -14,6 +14,10 @@ import { Checkbox } from './shared/checkbox/checkbox'
 import { InputTime } from './shared/input-time/input-time'
 import { AutoSuggest } from './shared/auto-suggest/auto-suggest'
 
+import { PresenceTable } from './specifics/presence-table/presence-table'
+import { PresenceBadge } from './specifics/presence-badge/presence-badge'
+import { PresenceRow } from './specifics/presence-row/presence-row'
+
 export {
   Input,
   MaskInput,
@@ -30,4 +34,7 @@ export {
   Checkbox,
   InputTime,
   AutoSuggest,
+  PresenceTable,
+  PresenceBadge,
+  PresenceRow,
 }

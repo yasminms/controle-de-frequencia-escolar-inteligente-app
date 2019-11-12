@@ -12,7 +12,7 @@ const insertImages = data => {
   return axios.post(BASE_URL.concat('/student/attachment'), data.formData, {
     params: { email: data.email },
     headers: {
-      Authorization: `Bearer ${getUserCredentials().token}`,
+      Authorization: headers(getUserCredentials().token),
       'Content-Type': 'multipart/form-data',
     },
   })
@@ -24,4 +24,10 @@ const findAllStudents = () => {
   })
 }
 
-export { register, insertImages, findAllStudents }
+const getPresences = () => {
+  return axios.get(BASE_URL.concat('/student/presence'), {
+    headers: headers(getUserCredentials().token),
+  })
+}
+
+export { register, insertImages, findAllStudents, getPresences }
