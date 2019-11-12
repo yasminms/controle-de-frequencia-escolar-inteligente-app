@@ -12,6 +12,7 @@ import { ButtonSecondary } from './shared/button-secondary/button-secondary'
 import { InputFile } from './shared/input-file/input-file'
 import { Checkbox } from './shared/checkbox/checkbox'
 import { InputTime } from './shared/input-time/input-time'
+import { AutoSuggest } from './shared/auto-suggest/auto-suggest'
 
 export {
   Input,
@@ -28,4 +29,5 @@ export {
   InputFile,
   Checkbox,
   InputTime,
+  AutoSuggest,
 }
