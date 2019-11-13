@@ -1,0 +1,37 @@
+.presence-badge {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__icon {
+    text-align: center;
+    width: 97px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: $white;
+  }
+}
+
+.present {
+  background-color: #52a5a1;
+}
+
+.present::before {
+  content: 'PRESENTE';
+}
+
+.parcial {
+  background-color: #e4b65b;
+}
+
+.parcial::before {
+  content: 'PARCIAL';
+}
+
+.notPresent {
+  background-color: #99717b;
+}
+
+.notPresent::before {
+  content: 'AUSENTE';
+}

@@ -6,4 +6,5 @@ export default {
   CLASSROOM_REGISTER: '/cadastro/sala',
   CLASS_REGISTER: '/cadastro/aula',
   LOGIN: '/',
+  DIARIES: '/diarios',
 }

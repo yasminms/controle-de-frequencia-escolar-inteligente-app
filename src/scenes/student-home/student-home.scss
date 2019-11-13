@@ -1,0 +1,39 @@
+.student-presences {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #e2e7e9;
+
+  &__container {
+    border-radius: 15px 15px 0 0;
+    width: 90%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+      border-radius: 15px 15px 0 0;
+      height: 62px;
+      background-color: #60738a;
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      span {
+        padding: 0 40px;
+        color: $white;
+        font-size: 24px;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+      }
+    }
+
+    &__table {
+      padding: 0 40px;
+      background-color: #fdfdfd;
+      height: 500px;
+    }
+  }
+}
