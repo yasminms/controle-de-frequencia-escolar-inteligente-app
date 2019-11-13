@@ -5,7 +5,6 @@ import {
   Login,
   StudentHome,
   ClassRegister,
-  LinkStudentToClass,
   DiariesViewer,
 } from '@/scenes'
 import { WrappedComponent } from '@/compositions/wrapped-component/wrapped-component'
@@ -17,30 +16,24 @@ const App = () => (
       <Switch>
         <Route
           exact
-          path={URLEnum.STUDENT_REGISTER}
-          component={WrappedComponent(StudentRegister)}
-        />
-        <Route
-          path={URLEnum.CLASS_REGISTER}
-          exact
-          component={WrappedComponent(StudentRegister)}
-        />
-        <Route exact path={URLEnum.LOGIN} component={Login} />
-        <Route
-          exact
           path={URLEnum.CLASS_REGISTER}
           component={WrappedComponent(ClassRegister)}
         />
         <Route
           exact
-          path='/vincular-aluno'
-          component={WrappedComponent(LinkStudentToClass)}
-        />
-        <Route exact path='/tabela' component={WrappedComponent(StudentHome)} />
-        <Route
-          exact
           path={URLEnum.DIARIES}
           component={WrappedComponent(DiariesViewer)}
+        />
+        <Route
+          exact
+          path={URLEnum.HOME}
+          component={WrappedComponent(StudentHome)}
+        />
+        <Route exact path={URLEnum.LOGIN} component={Login} />
+        <Route
+          exact
+          path={URLEnum.STUDENT_REGISTER}
+          component={WrappedComponent(StudentRegister)}
         />
       </Switch>
     </BrowserRouter>
