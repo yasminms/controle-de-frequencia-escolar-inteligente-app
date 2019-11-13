@@ -5,7 +5,7 @@ import 'moment/locale/pt-br'
 
 import './diary-row.scss'
 
-export const DiaryRow = ({ diary }) => {
+export const DiaryRow = ({ diary, toggleModal }) => {
   const { year, classroom, group, subject, teacher } = diary
 
   return (
@@ -16,7 +16,9 @@ export const DiaryRow = ({ diary }) => {
       <td>{subject}</td>
       <td>{teacher.fullName}</td>
       <td className='edit-diary'>
-        <Image icon='EditPresence' />
+        <i onClick={() => toggleModal(true, diary)}>
+          <Image icon='EditPresence' />
+        </i>
       </td>
     </tr>
   )
@@ -24,4 +26,5 @@ export const DiaryRow = ({ diary }) => {
 
 DiaryRow.propTypes = {
   diary: PropTypes.object.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 }

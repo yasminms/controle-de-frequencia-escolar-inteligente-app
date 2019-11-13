@@ -4,9 +4,11 @@ import { DiaryRow } from '@/components'
 
 import './diary-table.scss'
 
-export const DiaryTable = ({ diaries }) => {
+export const DiaryTable = ({ diaries, toggleModal }) => {
   const mapDiaries = () => {
-    return diaries.map(diary => <DiaryRow diary={diary} />)
+    return diaries.map(diary => (
+      <DiaryRow diary={diary} toggleModal={toggleModal} />
+    ))
   }
 
   return (
@@ -33,4 +35,5 @@ export const DiaryTable = ({ diaries }) => {
 
 DiaryTable.propTypes = {
   diaries: PropTypes.array.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 }

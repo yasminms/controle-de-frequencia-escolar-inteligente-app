@@ -4,9 +4,16 @@ import PropTypes from 'prop-types'
 
 import './auto-suggest.scss'
 
-export const AutoSuggest = ({ list, onChange, placeholder, defaultValue }) => {
+export const AutoSuggest = ({
+  list,
+  onChange,
+  placeholder,
+  defaultValue,
+  emptyList,
+}) => {
   return (
     <Multiselect
+      messages={{ emptyList }}
       containerClassName='auto-suggest'
       data={list}
       textField='name'
@@ -23,9 +30,11 @@ AutoSuggest.propTypes = {
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   defaultValue: PropTypes.array,
+  emptyList: PropTypes.string,
 }
 
 AutoSuggest.defaultProps = {
   placeholder: '',
   defaultValue: [],
+  emptyList: 'Sem itens na lista',
 }
