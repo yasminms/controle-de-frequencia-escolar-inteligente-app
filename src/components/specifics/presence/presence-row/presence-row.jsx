@@ -8,8 +8,9 @@ import { requestPresence } from '@/services/presence-service'
 import 'moment/locale/pt-br'
 import './presence-row.scss'
 
-export const PresenceRow = ({ presence }) => {
+export const PresenceRow = ({ presence, parentCallback }) => {
   const {
+    id,
     dateTime,
     classroom,
     subject,
@@ -20,7 +21,7 @@ export const PresenceRow = ({ presence }) => {
 
   const onRequestPresence = event => {
     requestPresence(event.currentTarget.id).then(response => {
-      alert(response.status)
+      parentCallback(response.data)
     })
   }
 
@@ -30,7 +31,7 @@ export const PresenceRow = ({ presence }) => {
   }
 
   return (
-    <tr>
+    <tr className='presence-row'>
       <td>{moment(dateTime).format('llll')}</td>
       <td>{classroom}</td>
       <td>{subject}</td>
@@ -38,8 +39,8 @@ export const PresenceRow = ({ presence }) => {
       <td>
         <PresenceBadge status={status} />
       </td>
-      <td className='edit-presence'>
-        <i id={presence.id} onClick={onRequestPresence}>
+      <td className='presence-row__edit-presence'>
+        <i id={id} onClick={onRequestPresence}>
           <Image icon='EditPresence' />
         </i>
       </td>
@@ -49,4 +50,5 @@ export const PresenceRow = ({ presence }) => {
 
 PresenceRow.propTypes = {
   presence: PropTypes.object.isRequired,
+  parentCallback: PropTypes.func.isRequired,
 }

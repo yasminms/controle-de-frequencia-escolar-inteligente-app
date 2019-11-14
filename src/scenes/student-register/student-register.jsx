@@ -137,12 +137,12 @@ export const StudentRegister = () => {
           <div className='student-register__container__special-row'>
             <Column>
               <Label
-                text='Email'
+                text='E-mail'
                 htmlFor='email'
                 className='student-register__container__label'
               />
               <Input
-                placeholder='Informe o email do aluno'
+                placeholder='Informe o e-mail do aluno'
                 type='email'
                 name='email'
                 value={email}
@@ -173,7 +173,7 @@ export const StudentRegister = () => {
         </div>
         <div className='student-register__container__fifth-container'>
           <div className='student-register__container__special-row student-register__button'>
-            <Button text='Cancelar' />
+            <Button text='Limpar' />
           </div>
           <div className='student-register__container__special-row right-container student-register__button'>
             <Button text='Salvar' type='submit' onClick={registerOnSubmit} />

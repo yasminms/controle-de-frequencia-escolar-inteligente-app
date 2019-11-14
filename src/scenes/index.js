@@ -4,6 +4,7 @@ import { ClassRegister } from './class-register/class-register'
 import { LinkStudentToClass } from './link-student-to-class/link-student-to-class'
 import { StudentHome } from './student-home/student-home'
 import { DiariesViewer } from './diaries-viewer/diaries-viewer'
+import { TeacherHome } from './teacher-home/teacher-home'
 
 export {
   StudentRegister,
@@ -12,4 +13,5 @@ export {
   LinkStudentToClass,
   StudentHome,
   DiariesViewer,
+  TeacherHome,
 }

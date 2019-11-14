@@ -12,6 +12,10 @@ export const StudentHome = () => {
     })
   }, [])
 
+  const updatePresenceList = updatedPresences => {
+    setPresences(updatedPresences)
+  }
+
   return (
     <div className='student-presences'>
       <div className='student-presences__container'>
@@ -19,7 +23,10 @@ export const StudentHome = () => {
           <span>Visualize suas faltas e presenças</span>
         </div>
         <div className='student-presences__container__table'>
-          <PresenceTable presences={presences} />
+          <PresenceTable
+            parentCallback={updatePresenceList}
+            presences={presences}
+          />
         </div>
       </div>
     </div>

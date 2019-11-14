@@ -6,6 +6,7 @@ import {
   StudentHome,
   ClassRegister,
   DiariesViewer,
+  TeacherHome,
 } from '@/scenes'
 import { WrappedComponent } from '@/compositions/wrapped-component/wrapped-component'
 import URLEnum from '@/enums/url-enum'
@@ -26,8 +27,13 @@ const App = () => (
         />
         <Route
           exact
-          path={URLEnum.HOME}
+          path={URLEnum.HOME_STUDENT}
           component={WrappedComponent(StudentHome)}
+        />
+        <Route
+          exact
+          path={URLEnum.HOME_TEACHER}
+          component={WrappedComponent(TeacherHome)}
         />
         <Route exact path={URLEnum.LOGIN} component={Login} />
         <Route
