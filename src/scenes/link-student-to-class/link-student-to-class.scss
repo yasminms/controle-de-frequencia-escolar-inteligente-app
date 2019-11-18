@@ -1,0 +1,17 @@
+.link-student-to-class {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+  &__container {
+    &__field {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    &__button {
+      width: 100%;
+      margin-top: 50px;
+    }
+  }
+}

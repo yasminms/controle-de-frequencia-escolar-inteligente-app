@@ -1,0 +1,37 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  width: 150px;
+
+  &__input {
+    display: none;
+  }
+
+  &__input:checked + div > i {
+    display: block;
+  }
+
+  &__container {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    padding: 1px;
+    border: 1px solid $light-grey;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &__icon {
+      position: absolute;
+      display: none;
+    }
+  }
+
+  &__label {
+    font-size: 16px;
+    line-height: 17px;
+    color: $dark-grey;
+    margin-left: 13px;
+    cursor: pointer;
+  }
+}

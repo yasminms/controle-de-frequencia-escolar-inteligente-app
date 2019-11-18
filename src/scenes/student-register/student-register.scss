@@ -1,0 +1,88 @@
+.student-register {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: calc(50% + 20px);
+
+    &__fifth-container {
+      display: flex;
+    }
+
+    &__special-row {
+      width: 50%;
+
+      &__radio {
+        display: flex;
+        width: 100%;
+      }
+    }
+
+    &__files {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__button-container {
+      display: flex;
+    }
+
+    &__left-column {
+      margin-right: 10px;
+    }
+
+    &__special-input {
+      width: 50%;
+    }
+
+    &__normal-input {
+      width: 100%;
+
+      div {
+        display: flex;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+  }
+}
+
+.right-container {
+  margin-left: 10px;
+}
+
+@media (max-width: 1035px) {
+  .student-register {
+    &__container {
+      width: calc(50% + 20px);
+
+      &__fifth-container {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      &__special-row {
+        width: 100%;
+      }
+    }
+
+    .right-container {
+      margin-left: 0px;
+    }
+
+    &__button {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .student-register {
+    &__container {
+      width: 90%;
+    }
+  }
+}
