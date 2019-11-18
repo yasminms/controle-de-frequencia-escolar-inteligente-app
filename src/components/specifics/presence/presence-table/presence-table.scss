@@ -69,6 +69,14 @@
         font-size: 14px;
         padding: 10px 0;
       }
+
+      th:nth-child(3) {
+        display: none;
+      }
+
+      th:nth-child(4) {
+        display: none;
+      }
     }
 
     tbody {

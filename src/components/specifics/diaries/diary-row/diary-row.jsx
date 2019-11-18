@@ -9,13 +9,13 @@ export const DiaryRow = ({ diary, toggleModal }) => {
   const { year, classroom, group, subject, teacher } = diary
 
   return (
-    <tr>
+    <tr className='diary-row'>
       <td>{year}</td>
       <td>{classroom}</td>
       <td>{group}</td>
       <td>{subject}</td>
       <td>{teacher.fullName}</td>
-      <td className='edit-diary'>
+      <td className='diary-row__edit-diary'>
         <i onClick={() => toggleModal(true, diary)}>
           <Image icon='EditPresence' />
         </i>

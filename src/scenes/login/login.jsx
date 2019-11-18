@@ -37,7 +37,7 @@ export const Login = () => {
           </div>
           <div className='login__container__fields__container'>
             <Input
-              placeholder='Email'
+              placeholder='E-mail'
               type='email'
               name='email'
               value={email}
@@ -62,10 +62,10 @@ export const Login = () => {
         <div className='login__container__info'>
           <Image icon='Classroom' />
           <h2 className='login__container__info__primary'>
-            Cadastro autormático da presença dos estudantes
+            Cadastro automático da presença dos estudantes
           </h2>
           <span className='login__container__info__secondary'>
-            Com o nosso sistema, todo o processo é feita de forma automática
+            Com o nosso sistema, todo o processo é feito de forma automática
             através do reconhecimento facial dos alunos
           </span>
         </div>

@@ -1,5 +1,19 @@
-.edit-presence svg {
-  height: 20px;
-  width: 20px;
-  cursor: pointer;
+.presence-row {
+  &__edit-presence svg {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .presence-row {
+    td:nth-child(3) {
+      display: none;
+    }
+
+    td:nth-child(4) {
+      display: none;
+    }
+  }
 }

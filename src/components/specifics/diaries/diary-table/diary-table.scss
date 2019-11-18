@@ -18,6 +18,7 @@
   }
 
   &__table {
+    padding: 0 40px;
     display: flex;
     flex-flow: column;
     height: 100%;
@@ -69,6 +70,48 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1016px) {
+  .diary-table-container {
+    &__title {
+      justify-content: center;
+      border-radius: 0;
+
+      span {
+        font-size: 16px;
+      }
+    }
+
+    &__table {
+      padding: 0;
+
+      thead {
+        th {
+          font-size: 14px;
+          padding: 10px 0;
+        }
+      }
+
+      tbody {
+        td {
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .diary-table-container {
+    &__table {
+      thead {
+        th {
+          font-size: 12px;
+        }
       }
     }
   }

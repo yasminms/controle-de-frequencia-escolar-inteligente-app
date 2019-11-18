@@ -18,6 +18,8 @@ import { DiaryTable } from './specifics/diaries/diary-table/diary-table'
 import { PresenceTable } from './specifics/presence/presence-table/presence-table'
 import { PresenceBadge } from './specifics/presence/presence-badge/presence-badge'
 import { PresenceRow } from './specifics/presence/presence-row/presence-row'
+import { PresenceRequestRow } from './specifics/presence-request/request-row/request-row'
+import { PresenceRequestTable } from './specifics/presence-request/request-table/request-table'
 
 export {
   Input,
@@ -40,4 +42,6 @@ export {
   PresenceRow,
   DiaryRow,
   DiaryTable,
+  PresenceRequestRow,
+  PresenceRequestTable,
 }

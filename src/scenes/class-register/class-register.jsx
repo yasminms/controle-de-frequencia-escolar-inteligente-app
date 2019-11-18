@@ -367,7 +367,7 @@ export const ClassRegister = () => {
         </Row>
         <div className='class-register__container__buttons'>
           <div className='class-register__container__buttons__button'>
-            <Button text='Cancelar' />
+            <Button text='Limpar' />
           </div>
           <div className='class-register__container__buttons__button'>
             <Button text='Salvar' type='submit' />

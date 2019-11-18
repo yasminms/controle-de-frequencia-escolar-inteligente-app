@@ -36,7 +36,7 @@ export const InputFile = ({ parentCallback }) => {
             <Image icon='Upload' />
           </i>
           <span className='input-file-container__span'>
-            Arraste e solte os arquivos aqui!
+            Arraste e solte os arquivos aqui
           </span>
           <span className='input-file-container__span'>OU</span>
           <Button text='Faça upload dos arquivos' />
