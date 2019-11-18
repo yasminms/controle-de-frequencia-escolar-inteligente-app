@@ -4,9 +4,15 @@ import { PresenceRow } from '@/components'
 
 import './presence-table.scss'
 
-export const PresenceTable = ({ presences }) => {
+export const PresenceTable = ({ presences, parentCallback }) => {
+  const updatePresenceList = updatedPresences => {
+    parentCallback(updatedPresences)
+  }
+
   const mapPresences = () => {
-    return presences.map(presence => <PresenceRow presence={presence} />)
+    return presences.map(presence => (
+      <PresenceRow parentCallback={updatePresenceList} presence={presence} />
+    ))
   }
 
   return (
@@ -34,4 +40,5 @@ export const PresenceTable = ({ presences }) => {
 
 PresenceTable.propTypes = {
   presences: PropTypes.array.isRequired,
+  parentCallback: PropTypes.func.isRequired,
 }

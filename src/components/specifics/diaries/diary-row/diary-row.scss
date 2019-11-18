@@ -1,4 +1,7 @@
-.edit-diary svg {
-  height: 20px;
-  cursor: pointer;
+.diary-row {
+  &__edit-diary svg {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
 }

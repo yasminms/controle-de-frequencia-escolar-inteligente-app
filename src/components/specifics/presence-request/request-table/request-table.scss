@@ -1,9 +1,18 @@
-.presence-table {
+.request-table {
   display: flex;
   flex-flow: column;
   height: 100%;
   width: 100%;
   border-collapse: collapse;
+
+  &__no-data {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    color: $light-grey;
+  }
 
   thead {
     display: table;
@@ -50,6 +59,37 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1016px) {
+  .request-table {
+    thead {
+      th {
+        font-size: 14px;
+        padding: 10px 0;
+      }
+    }
+
+    tbody {
+      td {
+        padding: 10px 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .request-table {
+    thead {
+      th {
+        font-size: 12px;
+      }
+
+      th:nth-child(4) {
+        display: none;
+      }
     }
   }
 }
