@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
 import {
   Label,
   Input,
@@ -8,25 +7,21 @@ import {
   MaskInput,
   PageTitle,
   Button,
-  InputFile,
 } from '@/components'
 import GENDER_ENUM from '../../enums/gender-enum'
-import { register, insertImages } from '@/services/student-service'
-import { getUserCredentials } from '@/services/auth-service'
-import URLEnum from '@/enums/url-enum'
+import { register } from '@/services/teacher-service'
 import { success, error } from '@/services/toastr'
 
-import './student-register.scss'
+import './teacher-register.scss'
 
-export const StudentRegister = () => {
+export const TeacherRegister = () => {
   const [fullName, setFullName] = useState()
-  const [gender, setGender] = useState(GENDER_ENUM.MALE)
+  const [gender, setGender] = useState(GENDER_ENUM.FEMALE)
   const [birthDate, setBirthDate] = useState()
   const [cpf, setCpf] = useState()
   const [rg, setRg] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const [files, setFiles] = useState([])
 
   const getFormattedData = () => {
     return {
@@ -40,62 +35,37 @@ export const StudentRegister = () => {
     }
   }
 
-  const getFormattedEmailAndFiles = () => {
-    const formData = new FormData()
-
-    files.forEach(file => {
-      formData.append('faceImages', file)
-    })
-
-    return {
-      email,
-      formData,
-    }
-  }
-
-  const getFiles = imageFiles => {
-    setFiles(imageFiles)
-  }
-
   const registerOnSubmit = event => {
     event.preventDefault()
     register(getFormattedData())
-      .then(response => {
-        insertImages(getFormattedEmailAndFiles())
-          .then(response => {
-            success('Aluno cadastrado com sucesso')
-          })
-          .catch(err => error(err.response.data.errors[0].defaultMessage))
-      })
+      .then(response => success('Professor cadastrado com sucesso'))
       .catch(err => error(err.response.data.errors[0].defaultMessage))
   }
 
-  return !getUserCredentials() ? (
-    <Redirect to={URLEnum.LOGIN} />
-  ) : (
-    <div className='student-register'>
-      <form className='student-register__container'>
-        <PageTitle text='Cadastre um aluno(a)' />
+  return (
+    <div className='teacher-register'>
+      <form className='teacher-register__container'>
+        <PageTitle text='Cadastre um professor' />
         <Column>
           <Label
             text='Nome'
             htmlFor='name'
-            className='student-register__container__label'
+            className='teacher-register__container__label'
           />
-          <div className='student-register__container__normal-input'>
+          <div className='teacher-register__container__normal-input'>
             <Input
-              placeholder='Informe o nome do aluno'
+              placeholder='Informe o nome do professor'
               name='name'
               value={fullName}
               onChange={e => setFullName(e.target.value)}
             />
           </div>
         </Column>
-        <div className='student-register__container__fifth-container'>
-          <div className='student-register__container__special-row'>
+        <div className='teacher-register__container__fifth-container'>
+          <div className='teacher-register__container__special-row'>
             <Column>
               <Label text='Sexo' htmlFor='sexo' />
-              <div className='student-register__container__special-row__radio'>
+              <div className='teacher-register__container__special-row__radio'>
                 <Radio
                   labelText='Feminino'
                   name='gender'
@@ -122,7 +92,7 @@ export const StudentRegister = () => {
               />
             </Column>
           </div>
-          <div className='student-register__container__special-row right-container'>
+          <div className='teacher-register__container__special-row right-container'>
             <Column>
               <Label text='Data de nascimento' htmlFor='birthDate' />
               <MaskInput
@@ -139,22 +109,22 @@ export const StudentRegister = () => {
                 mask='9999999999'
                 value={rg}
                 onChange={e => setRg(e.target.value)}
-                placeholder='Informe o RG do aluno'
+                placeholder='Informe o RG do professor'
                 name='rg'
               />
             </Column>
           </div>
         </div>
-        <div className='student-register__container__fifth-container'>
-          <div className='student-register__container__special-row'>
+        <div className='teacher-register__container__fifth-container'>
+          <div className='teacher-register__container__special-row'>
             <Column>
               <Label
                 text='E-mail'
                 htmlFor='email'
-                className='student-register__container__label'
+                className='teacher-register__container__label'
               />
               <Input
-                placeholder='Informe o e-mail do aluno'
+                placeholder='Informe o e-mail do professor'
                 type='email'
                 name='email'
                 value={email}
@@ -162,15 +132,15 @@ export const StudentRegister = () => {
               />
             </Column>
           </div>
-          <div className='student-register__container__special-row right-container'>
+          <div className='teacher-register__container__special-row right-container'>
             <Column>
               <Label
                 text='Senha'
                 htmlFor='password'
-                className='student-register__container__label'
+                className='teacher-register__container__label'
               />
               <Input
-                placeholder='Informe a senha do aluno'
+                placeholder='Informe a senha do professor'
                 name='password'
                 type='password'
                 value={password}
@@ -179,15 +149,11 @@ export const StudentRegister = () => {
             </Column>
           </div>
         </div>
-        <div className='student-register__container__files'>
-          <Label text='Imagem' htmlFor='password' />
-          <InputFile parentCallback={getFiles} />
-        </div>
-        <div className='student-register__container__fifth-container'>
-          <div className='student-register__container__special-row student-register__button'>
+        <div className='teacher-register__container__fifth-container'>
+          <div className='teacher-register__container__special-row teacher-register__button'>
             <Button text='Limpar' />
           </div>
-          <div className='student-register__container__special-row right-container student-register__button'>
+          <div className='teacher-register__container__special-row right-container teacher-register__button'>
             <Button text='Salvar' type='submit' onClick={registerOnSubmit} />
           </div>
         </div>

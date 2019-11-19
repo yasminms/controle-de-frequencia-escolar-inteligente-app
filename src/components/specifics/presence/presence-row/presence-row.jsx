@@ -4,6 +4,7 @@ import moment from 'moment'
 import { PresenceBadge } from '@/components'
 import { Image } from '@/assets/images'
 import { requestPresence } from '@/services/presence-service'
+import { success, error } from '@/services/toastr'
 
 import 'moment/locale/pt-br'
 import './presence-row.scss'
@@ -20,9 +21,14 @@ export const PresenceRow = ({ presence, parentCallback }) => {
   } = presence
 
   const onRequestPresence = event => {
-    requestPresence(event.currentTarget.id).then(response => {
-      parentCallback(response.data)
-    })
+    requestPresence(event.currentTarget.id)
+      .then(response => {
+        success('Correção de presença solicitada')
+        parentCallback(response.data)
+      })
+      .catch(err => {
+        error(err.response.data.message)
+      })
   }
 
   const getPresences = () => {

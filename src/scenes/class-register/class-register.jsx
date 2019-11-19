@@ -16,6 +16,7 @@ import { findAllClassrooms } from '@/services/classroom-service'
 import { findAllSubjects } from '@/services/subject-service'
 import { classRegister } from '@/services/class-service'
 import { getUserCredentials } from '@/services/auth-service'
+import { success, error } from '@/services/toastr'
 import INITIAL_DAYS_OBJECT from '@/res/initial-days-object'
 import DAYS_OF_WEEK from '@/enums/days-of-week'
 import URLEnum from '@/enums/url-enum'
@@ -103,7 +104,13 @@ export const ClassRegister = () => {
   const handleSubmit = e => {
     e.preventDefault()
 
-    classRegister(getRequestObject()).then(response => {})
+    classRegister(getRequestObject())
+      .then(response => {
+        success('Aula criada com sucesso')
+      })
+      .catch(err => {
+        error(err.response.data.errors[0].defaultMessage)
+      })
   }
 
   return !getUserCredentials() ? (
