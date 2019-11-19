@@ -11,6 +11,8 @@ import './header.scss'
 
 export const Header = () => {
   const [selectedItem, setSelectedItem] = useState()
+  const [headerOpened, setHeaderOpened] = useState(false)
+
   const history = useHistory()
 
   useEffect(() => {
@@ -42,12 +44,36 @@ export const Header = () => {
   return (
     getUserCredentials() && (
       <div className='header'>
+        <div
+          className='header__hamburger'
+          onClick={() => setHeaderOpened(!headerOpened)}
+        >
+          <div
+            className={`header__hamburger--bar-1 ${
+              headerOpened ? `header__hamburger--bar-1-change` : ``
+            }`}
+          />
+          <div
+            className={`header__hamburger--bar-2 ${
+              headerOpened ? `header__hamburger--bar-2-change` : ``
+            }`}
+          />
+          <div
+            className={`header__hamburger--bar-3 ${
+              headerOpened ? `header__hamburger--bar-3-change` : ``
+            }`}
+          />
+        </div>
         <h2 className='header__logo'>
           Controle de Frequência
           <br />
           Escolar Inteligente
         </h2>
-        <div className='header__menu'>
+        <div
+          className={`${
+            headerOpened ? `header__menu--opened` : ``
+          } header__menu`}
+        >
           <h2 className='header__menu__name'>{`Olá ${getUserFirstName()}, seja bem vind${getUserGender()}`}</h2>
           <div className='header__menu__itens'>
             <div className='header__menu__itens__item'>
