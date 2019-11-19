@@ -6,6 +6,22 @@
   justify-content: space-between;
   padding: 30px 60px;
 
+  &__hamburger {
+    cursor: pointer;
+    display: none;
+    z-index: 10;
+
+    &--bar-1,
+    &--bar-2,
+    &--bar-3 {
+      width: 30px;
+      height: 3px;
+      background-color: $white;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  }
+
   &__logo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -47,6 +63,91 @@
 
         &__radio:checked + label {
           text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.header-opened {
+  transform: translateX(0%);
+}
+
+@media only screen and (max-width: 605px) {
+  .header {
+    height: 100px;
+    padding: 20px;
+
+    &__logo {
+      width: 100%;
+      text-align: right;
+      font-size: 20px;
+    }
+
+    &__hamburger {
+      display: block;
+
+      &--bar-1-change {
+        -webkit-transform: rotate(-45deg) translate(-7px, 4px);
+        transform: rotate(-45deg) translate(-7px, 4px);
+        background-color: $dark-blue;
+      }
+
+      &--bar-2-change {
+        opacity: 0;
+      }
+
+      &--bar-3-change {
+        -webkit-transform: rotate(45deg) translate(-8px, -6px);
+        transform: rotate(45deg) translate(-8px, -6px);
+        background-color: $dark-blue;
+      }
+    }
+
+    &__menu {
+      transform: translateX(-100%);
+      transition: transform 0.8s ease-in-out;
+
+      &__name {
+        color: $dark-blue;
+        display: none;
+      }
+
+      &--opened {
+        width: 80%;
+        position: absolute;
+        background-color: $off-white;
+        -webkit-box-shadow: 13px 0px 22px -17px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 13px 0px 22px -17px rgba(0, 0, 0, 0.75);
+        box-shadow: 13px 0px 22px -17px rgba(0, 0, 0, 0.75);
+        top: 0;
+        left: 0;
+        height: 100vh;
+        padding: 20px;
+        transform: translateX(0%);
+        z-index: 5;
+      }
+
+      &--opened + &__name {
+        display: block;
+      }
+
+      &--opened > &__itens {
+        display: flex;
+      }
+
+      &__itens {
+        flex-direction: column;
+        margin-top: 50px;
+        display: none;
+
+        &__item {
+          color: $dark-blue;
+          margin: 10px 0;
+        }
+
+        button {
+          margin-top: 10px;
         }
       }
     }
