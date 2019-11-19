@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 import { getPresences } from '@/services/presence-service'
 import { PresenceTable } from '@/components'
+import { getUserCredentials } from '@/services/auth-service'
+import URLEnum from '@/enums/url-enum'
 
 import './student-home.scss'
 
 export const StudentHome = () => {
   const [presences, setPresences] = useState([])
   useEffect(() => {
-    getPresences().then(response => {
-      setPresences(response.data)
-    })
+    if (getUserCredentials()) {
+      getPresences().then(response => {
+        setPresences(response.data)
+      })
+    }
   }, [])
 
   const updatePresenceList = updatedPresences => {
     setPresences(updatedPresences)
   }
 
-  return (
+  return !getUserCredentials() ? (
+    <Redirect to={URLEnum.LOGIN} />
+  ) : (
     <div className='student-presences'>
       <div className='student-presences__container'>
         <div className='student-presences__container__title'>

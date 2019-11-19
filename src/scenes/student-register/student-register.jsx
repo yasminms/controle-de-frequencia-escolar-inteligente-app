@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import {
   Label,
   Input,
@@ -11,6 +12,8 @@ import {
 } from '@/components'
 import GENDER_ENUM from '../../enums/gender-enum'
 import { register, insertImages } from '@/services/student-service'
+import { getUserCredentials } from '@/services/auth-service'
+import URLEnum from '@/enums/url-enum'
 
 import './student-register.scss'
 
@@ -59,7 +62,9 @@ export const StudentRegister = () => {
     })
   }
 
-  return (
+  return !getUserCredentials() ? (
+    <Redirect to={URLEnum.LOGIN} />
+  ) : (
     <div className='student-register'>
       <form className='student-register__container'>
         <PageTitle text='Cadastre um aluno(a)' />
