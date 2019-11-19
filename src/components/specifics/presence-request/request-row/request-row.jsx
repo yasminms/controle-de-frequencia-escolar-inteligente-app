@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import { Image } from '@/assets/images'
 import { updatePresence } from '@/services/presence-service'
+import { success, error } from '@/services/toastr'
 
 import 'moment/locale/pt-br'
 import './request-row.scss'
@@ -16,9 +17,12 @@ export const PresenceRequestRow = ({ request, parentCallback }) => {
       status,
     }
 
-    updatePresence(requestObject).then(response => {
-      parentCallback(response.data)
-    })
+    updatePresence(requestObject)
+      .then(response => {
+        success('Presença atualizada com sucesso')
+        parentCallback(response.data)
+      })
+      .catch(err => error(err.response.data.errors[0].defaultMessage))
   }
 
   return (

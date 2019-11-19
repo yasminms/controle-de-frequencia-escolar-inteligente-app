@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700|Roboto:300,400,500&display=swap');
 @import 'normalize';
+@import 'toastr';
+
+.toast-success {
+  background-color: #008080;
+}
+
+.toast-error {
+  background-color: #cc474b;
+}
 
 * {
   box-sizing: border-box;
