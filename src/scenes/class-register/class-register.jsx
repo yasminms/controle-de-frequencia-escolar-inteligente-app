@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 import {
   Select,
   Checkbox,
@@ -14,8 +15,11 @@ import { findAllGroups } from '@/services/group-service'
 import { findAllClassrooms } from '@/services/classroom-service'
 import { findAllSubjects } from '@/services/subject-service'
 import { classRegister } from '@/services/class-service'
+import { getUserCredentials } from '@/services/auth-service'
+import { success, error } from '@/services/toastr'
 import INITIAL_DAYS_OBJECT from '@/res/initial-days-object'
 import DAYS_OF_WEEK from '@/enums/days-of-week'
+import URLEnum from '@/enums/url-enum'
 
 import './class-register.scss'
 
@@ -31,17 +35,19 @@ export const ClassRegister = () => {
   const [classList, setClassList] = useState(INITIAL_DAYS_OBJECT)
 
   useEffect(() => {
-    findAllGroups().then(response => {
-      setGroupsList(response.data)
-    })
+    if (getUserCredentials()) {
+      findAllGroups().then(response => {
+        setGroupsList(response.data)
+      })
 
-    findAllClassrooms().then(response => {
-      setClassroomsList(response.data)
-    })
+      findAllClassrooms().then(response => {
+        setClassroomsList(response.data)
+      })
 
-    findAllSubjects().then(response => {
-      setSubjectsList(response.data)
-    })
+      findAllSubjects().then(response => {
+        setSubjectsList(response.data)
+      })
+    }
   }, [])
 
   const mapGroupsToOptions = () =>
@@ -98,10 +104,18 @@ export const ClassRegister = () => {
   const handleSubmit = e => {
     e.preventDefault()
 
-    classRegister(getRequestObject()).then(response => {})
+    classRegister(getRequestObject())
+      .then(response => {
+        success('Aula criada com sucesso')
+      })
+      .catch(err => {
+        error(err.response.data.errors[0].defaultMessage)
+      })
   }
 
-  return (
+  return !getUserCredentials() ? (
+    <Redirect to={URLEnum.LOGIN} />
+  ) : (
     <div className='class-register'>
       <form className='class-register__container' onSubmit={handleSubmit}>
         <PageTitle text='Cadastre sua aula' />

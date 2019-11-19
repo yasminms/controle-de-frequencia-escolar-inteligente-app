@@ -2,34 +2,52 @@
   height: 280px;
   background-color: $dark-blue;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: space-between;
   padding: 30px 60px;
 
-  &__name {
-    font-size: 18px;
-    color: $off-white;
-    margin-bottom: 25px;
+  &__logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: $white;
   }
 
-  &__itens {
-    display: flex;
-    align-items: center;
+  &__menu {
+    height: 100%;
 
-    &__item {
-      color: $white;
-      margin-right: 20px;
+    &__name {
+      font-size: 18px;
+      color: $off-white;
+      margin-bottom: 25px;
+      text-align: right;
+    }
 
-      &__radio {
-        display: none;
+    &__itens {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      button {
+        width: 90px;
+        height: 40px;
       }
 
-      label {
-        cursor: pointer;
-      }
+      &__item {
+        color: $white;
+        margin-right: 20px;
 
-      &__radio:checked + label {
-        text-decoration: underline;
+        &__radio {
+          display: none;
+        }
+
+        label {
+          cursor: pointer;
+        }
+
+        &__radio:checked + label {
+          text-decoration: underline;
+        }
       }
     }
   }

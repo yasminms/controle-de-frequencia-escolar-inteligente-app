@@ -4,6 +4,7 @@ import Modal from 'react-responsive-modal'
 import { PageTitle, AutoSuggest, Button, Label } from '@/components'
 import { findAllStudents } from '@/services/student-service'
 import { diaryRegister } from '@/services/diary-service'
+import { success, error } from '@/services/toastr'
 
 import './link-student-to-class.scss'
 
@@ -49,9 +50,12 @@ export const LinkStudentToClass = ({
       id: selectedDiary.id,
     }
 
-    diaryRegister(objectRequest).then(response => {
-      parentCallback(response.data)
-    })
+    diaryRegister(objectRequest)
+      .then(response => {
+        success('Vínculo de alunos atualizado')
+        parentCallback(response.data)
+      })
+      .catch(err => error(err.response.data.errors[0].defaultMessage))
   }
 
   return (
