@@ -12,7 +12,7 @@ const insertImages = data => {
   return axios.post(BASE_URL.concat('/student/attachment'), data.formData, {
     params: { email: data.email },
     headers: {
-      Authorization: headers(getUserCredentials().token),
+      Authorization: getUserCredentials().token,
       'Content-Type': 'multipart/form-data',
     },
   })
